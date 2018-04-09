@@ -17,42 +17,45 @@ var degreesToRadians = function(degrees) {
 }
 
 
-function drawFractalTreeLines(depthToGo, nxtPosStart, prevAngleDeg) {
+function drawFractalTreeLines(depthToGo, nxtPosStart, prevAngleDeg, nxtHt) {
 
-    //var randHeight = Math.random() * (maxHeight - minHeight) + minHeight;
-    var randHeight = 2;
-
+    
     var endPos = {
-        x: -randHeight * Math.sin(degreesToRadians(prevAngleDeg)),
-        y: -randHeight * Math.cos(degreesToRadians(prevAngleDeg)),
+        x: nxtPosStart.x + (nxtHt * Math.sin(degreesToRadians(prevAngleDeg))),
+        y: nxtPosStart.y + (nxtHt * Math.cos(degreesToRadians(prevAngleDeg))),
         z: 0
     }
-
+    
+    console.log(Object.keys(nxtPosStart));
+    console.log(depthToGo, "x pos: ", nxtPosStart.x + Math.sin(degreesToRadians(prevAngleDeg)));
+    console.log(depthToGo, "y pos: ", nxtPosStart.y + Math.cos(degreesToRadians(prevAngleDeg)));
+    
     Ent = Entities.addEntity({
         type: "Line",
         name: "FT1",
         color: { red: 155, green: 0, blue: 255 },
-        dimensions: {x: 5, y: 5, z: 5},
+        dimensions: {x: 20, y: 20, z: 20},
         linePoints: [
             nxtPosStart,
             endPos
         ]
     });
-
-    if (depthToGo - 1 === 0) return;
-
-    // Math.random() * (max - min) + min;
-    var randAngleR = Math.random() * (maxDeg - minDeg) + minDeg;
-    var randAngleL = Math.random() * (maxDeg - minDeg) + minDeg;
-
     
+    if (depthToGo - 1 === 0) return;
+    
+    // Math.random() * (max - min) + min;
+    var randAngleR = 30; // Math.random() * (maxDeg - minDeg) + minDeg;
+    var randAngleL = -30; // Math.random() * (maxDeg - minDeg) + minDeg;
 
-    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleR);
-    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleL);
+    //var randHeight = Math.random() * (maxHeight - minHeight) + minHeight;
+    //var randHeight = ;
+    
+    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleR, nxtHt/1.2);
+    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleL, nxtHt/1.2);
     
     return;
 }
 
-drawFractalTreeLines(depth, startPosition, startAngle);
+drawFractalTreeLines(5, startPosition, startAngle, 2);
 
 print('hello222');
