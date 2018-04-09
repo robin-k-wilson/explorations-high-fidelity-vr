@@ -1,5 +1,6 @@
- 
-//var position = Vec3.sum(MyAvatar.position, Quat.getFront(MyAvatar.orientation));
+/*
+ * Generates a 2D fractal tree using box entities in Hifi.
+*/
 
 var depth = 8;
 var startHeight = 3;
@@ -7,7 +8,6 @@ var startAngle = 0;
 var degIncrement = 30;
 var htDecrement = 2; // will be nextHeight = curHeight / htDecrement
 var startPosition = {x: 0, y: 0, z: 0};
-
 
 function drawFractalTreeBoxes(depthToGo, degIncrement, htDecrement, nxtPosition, nxtHeight, nxtDeg) {
 
@@ -55,9 +55,7 @@ function drawFractalTreeBoxes(depthToGo, degIncrement, htDecrement, nxtPosition,
     //depthToGo, degIncrement, htDecrement, nxtPosition, nxtHeight, nxtAngle
     drawFractalTree(depthToGo - 1, degIncrement, htDecrement, rPos, nxtHt, rDeg);
     drawFractalTree(depthToGo - 1, degIncrement, htDecrement, lPos, nxtHt, lDeg);
-    
-    return;
+
 }
 
 drawFractalTree(depth, degIncrement, htDecrement, startPosition, startHeight, startAngle);
-print('hello');
