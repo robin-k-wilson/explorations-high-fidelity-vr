@@ -9,7 +9,6 @@ var degIncrement = 30;
 var htDecrement = 2; // will be nextHeight = curHeight / htDecrement
 var startPosition = {x: 0, y: 0, z: 0};
 
-
 function drawFractalTreeBoxes(depthToGo, degIncrement, htDecrement, nxtPosition, nxtHeight, nxtDeg) {
 
     Ent = Entities.addEntity({

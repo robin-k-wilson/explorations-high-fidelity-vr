@@ -2,13 +2,13 @@
  * Builds 2D Fractal Tree in Hifi using Line Entities and random values.
 */
 
-var depth = 3;
+var depth = 5;
 var startHeight = 2;
 var startAngle = 0;
 var startPosition = {x: 0, y: 0, z: 0};
 
 // Boundaries for randomly generated values
-var minDeg = 10;
+var minDeg = -60;
 var maxDeg = 60;
 var minHeight = 0.1;
 var maxHeight = 1.5;
@@ -37,16 +37,15 @@ function drawFractalTreeLines(depthToGo, nxtPosStart, prevAngleDeg, nxtHt) {
     });
     
     if (depthToGo - 1 === 0) return;
-    
-    // Math.random() * (max - min) + min;
-    var randAngleR = Math.random() * (maxDeg - minDeg) + minDeg;
-    var randAngleL = Math.random() * (maxDeg - minDeg) + minDeg;
 
-    var randHtR = Math.random() * (maxHeight - minHeight) + minHeight;
-    var randHtL = Math.random() * (maxHeight - minHeight) + minHeight;;
-    
-    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleR, randHtR);
-    drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngleL, randAngleL);
+    var randNumSplit = Math.random() > 0.5 ? 2 : 3;
+
+    for (var i = 0; i < randNumSplit; i++){
+        var randAngle = Math.random() * (maxDeg - minDeg) + minDeg;
+        var randHt = Math.random() * (maxHeight - minHeight) + minHeight;
+
+        drawFractalTreeLines(depthToGo - 1, endPos, prevAngleDeg + randAngle, randHt);
+    }
 }
 
-drawFractalTreeLines(5, startPosition, startAngle, startHeight);
+drawFractalTreeLines(depth, startPosition, startAngle, startHeight);
