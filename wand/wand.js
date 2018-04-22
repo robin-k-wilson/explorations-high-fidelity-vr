@@ -1,6 +1,12 @@
 (function () {
     var listOfSpawnedTrees = [];
 
+
+
+
+
+
+    
     var TRIGGER_CONTROLS = [
         Controller.Standard.LT,
         Controller.Standard.RT
