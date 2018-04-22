@@ -6,6 +6,9 @@
         Controller.Standard.RT
     ];
 
+    var hand;
+    var _this;
+
     function Wand() {
     }
 
