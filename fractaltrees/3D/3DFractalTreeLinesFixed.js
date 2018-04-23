@@ -1,5 +1,5 @@
 /* 
- * Builds 2D Fractal Tree in Hifi using Line Entities and fixed values.
+ * Builds 3D Fractal Tree in Hifi using Line Entities and fixed values.
 */
 
 // Variables used in starting call for drawFractalTreeLines
@@ -10,8 +10,6 @@ var degIncrement = 30;
 var htDecrement = 2; // will be nextHeight = curHeight / htDecrement
 var pos = Vec3.sum(MyAvatar.position, Vec3.multiply(3, Quat.getFront(Camera.getOrientation())));
 var startPosition = {x: 0, y: 0, z: 0};
-
-console.log(startPosition.x, startPosition.y, startPosition.z);
 
 var entityList = [];
 

@@ -6,6 +6,7 @@ var depth = 5;
 var startHeight = 2;
 var startAngle = 0;
 var startPosition = {x: 0, y: 0, z: 0};
+var pos = Vec3.sum(MyAvatar.position, Vec3.multiply(3, Quat.getFront(Camera.getOrientation())));
 
 // Boundaries for randomly generated values
 var minDeg = -60;
@@ -27,7 +28,8 @@ function drawFractalTreeLines(depthToGo, nxtPosStart, prevAngleDeg, nxtHt) {
     
     Ent = Entities.addEntity({
         type: "Line",
-        name: "FT1",
+        name: "FT2",
+        position: pos,
         color: { red: 155, green: 0, blue: 255 },
         dimensions: {x: 20, y: 20, z: 20},
         linePoints: [
