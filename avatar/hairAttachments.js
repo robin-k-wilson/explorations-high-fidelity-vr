@@ -3,7 +3,6 @@
     var main = function () {
         var attachment = {
             modelURL: "http://mpassets.highfidelity.com/f2793a6a-8345-410a-b3bd-ebd67437ad53-v1/vikinghat.fbx",
-            texture: 
             jointName: "HeadTop_End",
             translation: { "x": 0, "y": 0, "z": 0 },
             rotation: { "x": 0, "y": 0, "z": 0, "w": 0 },
